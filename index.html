@@ -1035,40 +1035,6 @@
 		<!-- Custom JavaScript -->
 		<script src="js/main.js"></script>
 
-		const form = document.getElementById('contactForm');
-const messageDiv = document.getElementById('formMessage');
-
-form.onsubmit = async (e) => {
-    e.preventDefault();
-
-    const formData = {
-        name: form.name.value,
-        email: form.email.value,
-        subject: form.subject.value,
-        message: form.message.value
-    };
-
-    const response = await fetch('https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec', {  // Replace this with your actual deployment URL
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-    });
-
-    const result = await response.json();
-
-    if (result.status === 'success') {
-        messageDiv.style.display = 'block';
-        messageDiv.style.color = 'green';
-        messageDiv.innerText = 'Message sent successfully!';
-        form.reset();
-    } else {
-        messageDiv.style.display = 'block';
-        messageDiv.style.color = 'red';
-        messageDiv.innerText = 'Error: ' + result.message;
-    }
-};
 
 
 	</body>
